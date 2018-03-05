@@ -3,6 +3,9 @@ package com.rest.webservice.restfulwebservices.user;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -11,8 +14,11 @@ import java.util.Date;
  * Created by Asim on 2/14/2018.
  */
 @ApiModel(description="All details about the user.")
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     @ApiModelProperty(notes="Name should have atleast 2 characters")
     @Size(min=2, message="Name should have atleast 2 characters")
